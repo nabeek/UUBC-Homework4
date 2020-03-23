@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+
+.text-purple-bright {
+    color: #7952b3;
+}
+
+.text-purple-bright:hover {
+    color: #7952b3;
+}
+
+.h1-bolder {
+    font-weight: 700!important;
+}
+
+.bg-purple-bright {
+    background-color: #7952b3;
+    color: white;
+}
+
+.btn-purple-bright:hover {
+    color: white;
+}
+
+#bannerAnswer {
+    display: none;
+}
+
+#quizChoices {
+    display: block;
+}

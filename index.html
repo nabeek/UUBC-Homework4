@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz Challenge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="text-purple-bright" href="./highscores.html"><h5>View Highscores</h5></a>
+        <h5 class="ml-auto" id="timer">Time: 100</h5>
+    </nav>
+
+    
+    <main class="container">
+
+        <div class="row mt-5">
+            <div class="col">
+              1 of 3
+            </div>
+            <div class="col-8">
+                <h1 class="h1-bolder text-center" id="quizTitle">Coding Quiz Challenge</h1>
+                <h3 id="quizQuestion"></h3>
+            </div>
+            <div class="col text-right">
+              3 of 3
+            </div>
+        </div>
+        
+        <!-- Question choices populate in this div -->
+        <div class="row mt-3">
+            <div class="col"></div>
+            <div class="col-8 font-weight-bolder text-center" id="quizChoices">
+                
+                <h6 id="quizDirections">Try to answer the following code-related questions within the time limit. 
+                      Keep in mind that incorrect answers will penalize your score/time by ten seconds!</h6>                
+                
+                <div class="choicesBtn"></div>
+
+            </div>
+            <div class="col text-right"></div>
+        </div>
+        <!-- Question choices end -->
+
+        <div class="row mt-3" id="quizBeginBtn">
+            <div class="col text-center">
+                <button class="btn bg-purple-bright font-weight-bold" type="submit">Start Quiz</button>
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col">
+            </div>
+            <div class="col-8" id="bannerAnswer">
+                <hr>
+                <h3 class="font-italic font-weight-light" id="bannerAnswerText"></h3>
+            </div>
+            <div class="col text-right">
+            </div>
+        </div>
+
+
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
+
+</body>
+</html>

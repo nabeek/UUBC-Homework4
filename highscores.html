@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highscores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+ 
+    <main class="container">
+
+        <div class="row mt-5">
+            <div class="col">
+              1 of 3
+            </div>
+            <div class="col-8">
+                <h1 class="h1-bolder" id="quizTitle">Highscores</h1>
+                <h3 id="quizQuestion"></h3>
+            </div>
+            <div class="col text-right">
+              3 of 3
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col"></div>
+            <div class="col-8 font-weight-bolder" id="scoresDiv">
+                
+                <ol class="list-group" id="listOfScores">
+                    <li class="bg-purple-bright list-group-item list-group-item-primary mb-1">A simple primary list group item</li>
+                    <li class="bg-purple-bright list-group-item list-group-item-secondary mb-1">A simple secondary list group item</li>
+                    <li class="bg-purple-bright list-group-item list-group-item-success mb-1">A simple success list group item</li>
+                </ol>
+
+            </div>
+            <div class="col text-right"></div>
+        </div>
+     
+        <div class="row mt-3">
+            <div class="col">
+            </div>
+            <div class="col-8" id="highscoresBtns">
+                <button onclick="window.location.href = './index.html';" class="btn bg-purple-bright font-weight-bold" type="submit">Go Back</button>
+                <button class="btn bg-purple-bright font-weight-bold ml-3" id="clearScores" type="submit">Clear Highscores</button>
+            </div>
+            <div class="col text-right">
+            </div>
+        </div>
+
+
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
+
+</body>
+</html>
