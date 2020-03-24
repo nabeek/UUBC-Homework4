@@ -1,3 +1,5 @@
+/* Settings related to page functionality */
+
 html, body {
     height: 100%;
 }
@@ -12,16 +14,20 @@ body {
 }
 
 
+/* Color-specific changes */
+
+.light-purple {
+    background-color: #9575cd;
+    color: white;
+    font-weight: bold;
+}
+
 .text-purple-bright {
     color: #7952b3;
 }
 
 .text-purple-bright:hover {
     color: #7952b3;
-}
-
-.h1-bolder {
-    font-weight: 700!important;
 }
 
 .bg-purple-bright {
@@ -32,6 +38,26 @@ body {
 .btn-purple-bright:hover {
     color: white;
 }
+
+
+/* Size and shape changes */
+
+.h1-bolder {
+    font-weight: 700!important;
+}
+
+#highScoresList {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 2rem;
+}
+
+.high-score {
+    margin-bottom: 0.5rem;
+}
+
+
+/* CSS used to hide elements */
 
 #bannerAnswer {
     display: none;

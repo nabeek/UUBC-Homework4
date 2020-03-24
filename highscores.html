@@ -16,7 +16,6 @@
             </div>
             <div class="col-8">
                 <h1 class="h1-bolder" id="quizTitle">Highscores</h1>
-                <h3 id="quizQuestion"></h3>
             </div>
             <div class="col text-right">
             </div>
@@ -26,9 +25,7 @@
             <div class="col"></div>
             <div class="col-8 font-weight-bolder" id="scoresDiv">
                 
-                <ol class="list-group" id="listOfScores">
-                    <li class="bg-purple-bright list-group-item" id="liTest"><h4></h4></li>
-                </ol>
+                <ol class="list-group" id="highScoresList"></ol>
 
             </div>
             <div class="col text-right"></div>
@@ -45,11 +42,13 @@
             </div>
         </div>
 
-
     </main>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
+    
+    <!-- Utilize separate script for highscores-specific functionality -->
+    <script src="./assets/highscores.js"></script>
 
 </body>
 </html>

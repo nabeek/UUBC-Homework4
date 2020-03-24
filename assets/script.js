@@ -44,15 +44,15 @@ function stopTimer() {
     $("#timer").text(timeLeft);
 }
 
-function answerCorrect() {
+function answerCorrect() {                          // displays hidden HTML element if user chooses correct answer
     $("#bannerAnswer").show();
     $("#bannerAnswerText").text("Correct!");
 };
 
-function answerWrong() {
+function answerWrong() {                            // displays hidden HTML element if user chooses wrong answer
     $("#bannerAnswer").show();
     $("#bannerAnswerText").text("Wrong answer!");
-    timeLeft -= 10;
+    timeLeft -= 10;                                 // removes remaining time for wrong answer
 };
 
 function generateButtons() {
@@ -60,7 +60,7 @@ function generateButtons() {
         $.each(questions[questionArray].choices, function(i, value) {
             var choicesBtn = $("<button>");
             choicesBtn.addClass("btn bg-purple-bright font-weight-bold mb-1 quizBtn");
-            choicesBtn.attr("id", (i + 1));
+            choicesBtn.attr("id", (i + 1));         // assigned id correlates to answer defined in questions array
             choicesBtn.attr("type", "submit");
             choicesBtn.attr("style", "display: block");
             choicesBtn.text(value);
@@ -97,7 +97,7 @@ function endQuiz() {
 }
 
 
-// Click functions and button usage
+// Click functions to begin quiz and functionality of quiz choices
 
 $("#quizBeginBtn").click(function() {
     if (event.target.matches("button")){        // ensures that a button was selected, not just the div
@@ -108,14 +108,12 @@ $("#quizBeginBtn").click(function() {
 $(".choicesBtn").click(function(event){
     if (event.target.matches("button")){        // ensures that a button was selected, not just the div
         var buttonClicked = (event.target.id);
-        console.log(questions[quizQuestion].answer);
-        console.log(buttonClicked);
         $(".choicesBtn").empty();
         generateButtons();
-        if (questionArray !== questions.length) {
-            $("#quizQuestion").html(questions[questionArray].question);
+        if (questionArray !== questions.length) {                           // stops loop from running after the last question from questions array
+            generateQuestion();
                 
-            if (buttonClicked == questions[quizQuestion].answer) {
+            if (buttonClicked == questions[quizQuestion].answer) {          // checks if button id (set from i + 1) matches answer in questions array
             answerCorrect();
         }   else {
             answerWrong();
@@ -133,12 +131,9 @@ var submitScoreBtn = document.getElementById("submitScoreBtn");
 var userInitials = document.getElementById("userInitials");
 var mostRecentScore = localStorage.getItem("mostRecentScore");
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-var maxHighScores = 5;
 
-
-submitScore = e => {
-    console.log("clicked the submit button") 
-    e.preventDefault();
+function submitScore(event) {
+    event.preventDefault();
 
     var score = {
         score: timeLeft,
