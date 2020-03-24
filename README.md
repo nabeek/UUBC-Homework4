@@ -14,11 +14,11 @@ Further building upon our Javascript aptitude, including jQuery and local storag
 
 **Built with:**
 
-[Bootstrap](https://getbootstrap.com)
-JavaScript
-[jQuery](https://jquery.com)
-Sweat
-Tears
+[Bootstrap](https://getbootstrap.com)\
+JavaScript\
+[jQuery](https://jquery.com)\
+Sweat\
+Tears\
 
 # License
 
