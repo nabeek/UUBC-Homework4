@@ -93,7 +93,7 @@ function endQuiz() {
     $("#quizQuestion").empty();
     $("#scoreAlert").addClass("text-left").attr("id", "scoreText").html("Your final score is " + timeLeft + ".");
     $("#submitScoreDiv").attr("style", "display: flex;");
-    
+    localStorage.setItem("mostRecentScore", timeLeft);
 }
 
 
@@ -126,55 +126,29 @@ $(".choicesBtn").click(function(event){
     }
 });
 
-var submitScoreBtn = $("#submitScoreBtn");
 
-submitScoreBtn.on("click", function(e) {
+// Highscore and local storage functionality
+
+var submitScoreBtn = document.getElementById("submitScoreBtn");
+var userInitials = document.getElementById("userInitials");
+var mostRecentScore = localStorage.getItem("mostRecentScore");
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+var maxHighScores = 5;
+
+
+submitScore = e => {
     console.log("clicked the submit button") 
+    e.preventDefault();
 
-});
+    var score = {
+        score: timeLeft,
+        name: userInitials.value.toUpperCase()
+    };
+    highScores.push(score);
+    highScores.sort( (a,b) => b.score - a.score)
+    highScores.splice(5);
 
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.assign("./index.html");     // return to quiz start after submitting
 
-
-
-
-
-// var submitScoreBtn = document.querySelector("#submitScoreBtn");
-    
-// submitScoreBtn.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     generateHighscores();
-// });
-
-// // Highscores page-specific scripts
-
-
-
-// saveHighScore = e => {
-//     console.log("clicked the save button")
-//     e.preventDefault();
-// }
-
-
-
-
-
-
-
-
-// // function generateHighscores() {
-// //     var playerName = document.querySelector("#initialsInput");
-// //     var playerScore = timeLeft;
-    
-//     var playerEntry = {
-//         name: playerName.value,
-//         score: playerScore
-//     };
-
-//     // localStorage.setItem("highscore", JSON.stringify(playerEntry));
-//     var highscores = JSON.parse(localStorage.getItem("playerEntry")) || [];
-
-//     console.log(highscores.name);
-//     console.log(highscores.score);
-
-//     $("#liTest").text(highscores.name + " " + highscores.score);
-// }
+};
