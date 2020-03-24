@@ -112,13 +112,13 @@ $(".choicesBtn").click(function(event){
 
 function endQuiz() {
     stopTimer();
-    playerScore = timeLeft;
     $("#quizTitle").text("All done!");
     $("#quizTitle").removeClass("text-center");
     $("#quizQuestion").empty();
     $("#quizChoices").append("<h4>");
     $("#quizChoices > h4").addClass("text-left").attr("id", "scoreText").html("Your final score is " + timeLeft + ".");
     generateSubmitForm();
+    //populateList();
 }
 
 function generateSubmitForm() {
@@ -146,28 +146,36 @@ function generateSubmitForm() {
     submitScoreBtn.attr("type", "submit");
     submitScoreBtn.text("Submit Score");
     submitScoreBtn.appendTo(submitDiv);
-    
     submitDiv.appendTo($("#quizChoices"));
+   
+    var submitScoreBtn = document.querySelector("#submitScoreBtn");
     
-    $("#submitScoreBtn").click(function(event) {
+    submitScoreBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        var pleaseWork = "please work";
-        console.log(pleaseWork);
-        // var userInitials = initialsInput.value;
-            
-        // var highscore = {
-        //     Initials: userInitials.value,
-        //     Score: timeLeft.value
-        // };
         
-        //localStorage.setItem("highscore", JSON.stringify(highscore));
+        generateHighscores();
     });
-}
 
-
-
+};
 
 // Highscores page-specific scripts
-$("#clearScores").click(function() {
-    $("#listOfScores").empty();
-});
+
+function generateHighscores() {
+    var playerName = document.querySelector("#initialsInput");
+    var playerScore = timeLeft;
+    
+    var playerEntry = {
+        name: playerName.value,
+        score: playerScore
+    };
+
+    localStorage.setItem("highscore", JSON.stringify(playerEntry));
+    var highscores = JSON.parse(localStorage.getItem("highscore"));
+
+    console.log(highscores.name);
+    console.log(highscores.score);
+
+    var highscoreEntry = $("<li>");
+    highscoreEntry.addClass("bg-purple-bright list-group-item");
+    highscoreEntry.appendTo($("#listOfScores"));
+}
