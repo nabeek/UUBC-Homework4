@@ -40,3 +40,7 @@ body {
 #quizChoices {
     display: block;
 }
+
+#submitScoreDiv {
+    display: none;
+};

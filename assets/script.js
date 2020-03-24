@@ -1,3 +1,4 @@
+// Global variables
 
 var questions = [
     {question: "Commonly used data types DO NOT include:",
@@ -24,6 +25,8 @@ var questions = [
 var questionArray = 0;
 var quizQuestion = -1;
 var timeLeft = 100;
+
+// Functions
 
 function startTimer() {
     quizTimer = setInterval(function(){
@@ -83,6 +86,19 @@ function beginQuiz() {
     quizQuestion++;
 };
 
+function endQuiz() {
+    stopTimer();
+    $("#quizTitle").text("All done!");
+    $("#quizTitle").removeClass("text-center");
+    $("#quizQuestion").empty();
+    $("#scoreAlert").addClass("text-left").attr("id", "scoreText").html("Your final score is " + timeLeft + ".");
+    $("#submitScoreDiv").attr("style", "display: flex;");
+    
+}
+
+
+// Click functions and button usage
+
 $("#quizBeginBtn").click(function() {
     if (event.target.matches("button")){        // ensures that a button was selected, not just the div
         beginQuiz();
@@ -110,72 +126,55 @@ $(".choicesBtn").click(function(event){
     }
 });
 
-function endQuiz() {
-    stopTimer();
-    $("#quizTitle").text("All done!");
-    $("#quizTitle").removeClass("text-center");
-    $("#quizQuestion").empty();
-    $("#quizChoices").append("<h4>");
-    $("#quizChoices > h4").addClass("text-left").attr("id", "scoreText").html("Your final score is " + timeLeft + ".");
-    generateSubmitForm();
-    //populateList();
-}
+var submitScoreBtn = $("#submitScoreBtn");
 
-function generateSubmitForm() {
-    var submitDiv = $("<div>");
-    submitDiv.addClass("row");
-    submitDiv.attr("id", "submitScoreDiv");
+submitScoreBtn.on("click", function(e) {
+    console.log("clicked the submit button") 
 
-    var enterInitials = $("<span>");
-    enterInitials.text("Enter initials: ")
-    enterInitials.attr("style", "font-size: 1.5rem; font-weight: 500; vertical-align: middle");
-    enterInitials.addClass("col");
-    enterInitials.appendTo(submitDiv);
+});
+
+
+
+
+
+
+// var submitScoreBtn = document.querySelector("#submitScoreBtn");
     
-    var initialsInput = $("<input>");
-    initialsInput.addClass(" col-6 form-control");
-    initialsInput.attr("type", "text");
-    initialsInput.attr("id", "initialsInput");
-    initialsInput.attr("maxlength", "3");
-    initialsInput.attr("name", "initials");
-    initialsInput.appendTo(submitDiv);
+// submitScoreBtn.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     generateHighscores();
+// });
+
+// // Highscores page-specific scripts
+
+
+
+// saveHighScore = e => {
+//     console.log("clicked the save button")
+//     e.preventDefault();
+// }
+
+
+
+
+
+
+
+
+// // function generateHighscores() {
+// //     var playerName = document.querySelector("#initialsInput");
+// //     var playerScore = timeLeft;
     
-    var submitScoreBtn = $("<button>");
-    submitScoreBtn.addClass("btn bg-purple-bright font-weight-bold col mx-3");
-    submitScoreBtn.attr("id", "submitScoreBtn");
-    submitScoreBtn.attr("type", "submit");
-    submitScoreBtn.text("Submit Score");
-    submitScoreBtn.appendTo(submitDiv);
-    submitDiv.appendTo($("#quizChoices"));
-   
-    var submitScoreBtn = document.querySelector("#submitScoreBtn");
-    
-    submitScoreBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        
-        generateHighscores();
-    });
+//     var playerEntry = {
+//         name: playerName.value,
+//         score: playerScore
+//     };
 
-};
+//     // localStorage.setItem("highscore", JSON.stringify(playerEntry));
+//     var highscores = JSON.parse(localStorage.getItem("playerEntry")) || [];
 
-// Highscores page-specific scripts
+//     console.log(highscores.name);
+//     console.log(highscores.score);
 
-function generateHighscores() {
-    var playerName = document.querySelector("#initialsInput");
-    var playerScore = timeLeft;
-    
-    var playerEntry = {
-        name: playerName.value,
-        score: playerScore
-    };
-
-    localStorage.setItem("highscore", JSON.stringify(playerEntry));
-    var highscores = JSON.parse(localStorage.getItem("highscore"));
-
-    console.log(highscores.name);
-    console.log(highscores.score);
-
-    var highscoreEntry = $("<li>");
-    highscoreEntry.addClass("bg-purple-bright list-group-item");
-    highscoreEntry.appendTo($("#listOfScores"));
-}
+//     $("#liTest").text(highscores.name + " " + highscores.score);
+// }
