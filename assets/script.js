@@ -34,7 +34,8 @@ function startTimer() {
         if (timeLeft !== 0) {
             timeLeft--;
         }   else {
-            stopTimer();
+            $(".choicesBtn").empty();
+            endQuiz();
         }
     }, 1000);
 };
